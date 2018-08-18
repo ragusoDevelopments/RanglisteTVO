@@ -23,6 +23,7 @@ namespace RanglisteTVO
         public MainWindow()
         {
             InitializeComponent();
+            mainFrame.Content = new UI.Pages.EditParticipant();
         }
     }
 }

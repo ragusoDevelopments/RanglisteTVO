@@ -7,6 +7,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RanglisteTVO", "RanglisteTV
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation Layer", "Presentation Layer", "{146D286E-B6F9-46AE-89BF-4D7BDEB915FF}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Business Layer", "Business Layer", "{45C01337-EE9D-486A-B160-B8840B0BACD3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Models\Models.csproj", "{BD722915-CBD6-4A61-B2B8-0EC60753B003}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data Access Layer", "Data Access Layer", "{4A3A4984-560B-44A1-B0E8-720DEB51DA8C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\DataAccess.csproj", "{8F10EF18-EA0A-48ED-8667-107209CAA5EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,11 +25,21 @@ Global
 		{03A5A168-B256-4879-9D95-8EE5370BE66D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{03A5A168-B256-4879-9D95-8EE5370BE66D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{03A5A168-B256-4879-9D95-8EE5370BE66D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD722915-CBD6-4A61-B2B8-0EC60753B003}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD722915-CBD6-4A61-B2B8-0EC60753B003}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD722915-CBD6-4A61-B2B8-0EC60753B003}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD722915-CBD6-4A61-B2B8-0EC60753B003}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F10EF18-EA0A-48ED-8667-107209CAA5EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F10EF18-EA0A-48ED-8667-107209CAA5EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F10EF18-EA0A-48ED-8667-107209CAA5EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F10EF18-EA0A-48ED-8667-107209CAA5EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{03A5A168-B256-4879-9D95-8EE5370BE66D} = {146D286E-B6F9-46AE-89BF-4D7BDEB915FF}
+		{BD722915-CBD6-4A61-B2B8-0EC60753B003} = {45C01337-EE9D-486A-B160-B8840B0BACD3}
+		{8F10EF18-EA0A-48ED-8667-107209CAA5EC} = {4A3A4984-560B-44A1-B0E8-720DEB51DA8C}
 	EndGlobalSection
 EndGlobal

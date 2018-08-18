@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RanglisteTVO"
         mc:Ignorable="d"
-        Title="Rangliste TV Oberwinterthur" Height="350" Width="525">
+        Title="Rangliste TV Oberwinterthur" Height="459" Width="645">
     <Grid>
-        <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="16" VerticalAlignment="Top" Width="517">
-            <MenuItem x:Name="menuItemParticipants"  Header="Teilnehmer" FontSize="10">
+        <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="637" FontSize="14">
+            <MenuItem x:Name="menuItemParticipants"  Header="Teilnehmer" FontSize="14" Height="25">
                 <MenuItem Header="Erfassen"/>
                 <MenuItem Header="Anzeigen"/>
             </MenuItem>

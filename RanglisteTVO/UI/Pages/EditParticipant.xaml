@@ -5,13 +5,34 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:RanglisteTVO.UI.Pages"
       mc:Ignorable="d"
-      Title="EditParticipant" Height="169.435" Width="394.684">
+      Title="EditParticipant" Height="321.935" Width="546.684" Background="White">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*" />
-            <ColumnDefinition Width="2*" />
-        </Grid.ColumnDefinitions>
-        <TextBox x:Name="startnumber" Text=""></TextBox>
-        
+        <TextBox Text="{Binding CurrentParticipant.StartNumber }" x:Name="tBStartNumber" HorizontalAlignment="Left" Height="32" Margin="109,14,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="77" FontSize="14" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"/>
+        <TextBox Text="{Binding CurrentParticipant.FirstName }" x:Name="tBFirstName" HorizontalAlignment="Left" Height="32" Margin="109,51,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="14" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"/>
+        <TextBox Text="{Binding CurrentParticipant.LastName }" x:Name="tBLastName" HorizontalAlignment="Left" Height="32" Margin="109,89,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="14" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"/>
+        <TextBox Text="{Binding CurrentParticipant.YearOfBirth }" x:Name="tBYearOfBirth" HorizontalAlignment="Left" Height="31" Margin="109,131,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" FontSize="14" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center"/>
+        <ComboBox SelectedItem="{Binding CurrentParticipant.Gender}" x:Name="cBGender" HorizontalAlignment="Left" Margin="109,169,0,0" VerticalAlignment="Top" Width="147" FontSize="14" SelectedIndex="0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Height="33">
+            <ComboBoxItem Content="Männlich"/>
+            <ComboBoxItem Content="Weiblich"/>
+        </ComboBox>
+        <ComboBox x:Name="cBCategory" HorizontalAlignment="Left" Margin="109,209,0,0" VerticalAlignment="Top" Width="147" FontSize="14" SelectedIndex="0" RenderTransformOrigin="0.5,0.5" VerticalContentAlignment="Center" Height="33"/>
+
+        <Label x:Name="label" Content="Startnummer:" HorizontalAlignment="Left" Margin="10,14,0,0" VerticalAlignment="Top" Height="32" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="105"/>
+        <Label x:Name="label_Copy" Content="Vorname:" HorizontalAlignment="Left" Margin="10,51,0,0" VerticalAlignment="Top" Height="32" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="73"/>
+        <Label x:Name="label_Copy1" Content="Nachname:" HorizontalAlignment="Left" Margin="10,89,0,0" VerticalAlignment="Top" Height="32" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="88"/>
+        <Label x:Name="label_Copy2" Content="Geburtsjahr:" HorizontalAlignment="Left" Margin="10,131,0,0" VerticalAlignment="Top" Height="31" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="94"/>
+        <Label x:Name="label_Copy3" Content="Geschlecht:" HorizontalAlignment="Left" Margin="10,169,0,0" VerticalAlignment="Top" Height="32" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="88"/>
+        <Label x:Name="label_Copy4" Content="Kategorie:" HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Height="32" FontSize="14" Padding="0" RenderTransformOrigin="0.5,0.5" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Width="78"/>
+        <ListView x:Name="lVCategories" HorizontalAlignment="Left" Height="232" Margin="308,10,0,0" VerticalAlignment="Top" Width="229">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <WrapPanel>
+                        <Label x:Name="lBCategoryName"></Label>
+                        <TextBox x:Name="tBCategoryValue"/>
+                        <Button Content="X"/>
+                    </WrapPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Page>
