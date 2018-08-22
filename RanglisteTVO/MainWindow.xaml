@@ -5,14 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RanglisteTVO"
         mc:Ignorable="d"
-        Title="Rangliste TV Oberwinterthur" Height="459" Width="645">
+        Title="Rangliste TV Oberwinterthur" Height="600" Width="1000">
     <Grid>
-        <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="25" VerticalAlignment="Top" Width="637" FontSize="14">
-            <MenuItem x:Name="menuItemParticipants"  Header="Teilnehmer" FontSize="14" Height="25">
-                <MenuItem Header="Erfassen"/>
-                <MenuItem Header="Anzeigen"/>
-            </MenuItem>
-        </Menu>
-        <Frame x:Name="mainFrame"></Frame>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel>
+            <Button Content="Übersicht"/>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="25"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="" FontSize="14" Grid.Row="0">
+                <MenuItem x:Name="menuItemExport"  Header="Export" FontSize="14" Height="25">
+                    <MenuItem Header="Teilnehmer (CSV)"/>
+                    <MenuItem Header="Kategorien (CSV)"/>
+                    <MenuItem Header="Disziplinen (CSV)"/>
+                </MenuItem>
+                <MenuItem x:Name="menuItemImport"  Header="Import" FontSize="14" Height="25">
+                    <MenuItem Header="Teilnehmer (CSV)"/>
+                    <MenuItem Header="Kategorien (CSV)"/>
+                    <MenuItem Header="Disziplinen (CSV)"/>
+                </MenuItem>
+            </Menu>
+            <Frame x:Name="mainFrame" Grid.Row="1"></Frame>
+        </Grid>
+       
     </Grid>
 </Window>

@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RanglisteTVO
+namespace RanglisteTVO.UI.Pages
 {
     /// <summary>
-    /// Interaktionslogik für MainWindow.xaml
+    /// Interaktionslogik für ContestOverview.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ContestOverview : Page
     {
-        public MainWindow()
+        public ContestOverview()
         {
             InitializeComponent();
-            mainFrame.Content = new UI.Pages.ContestOverview();
         }
     }
 }

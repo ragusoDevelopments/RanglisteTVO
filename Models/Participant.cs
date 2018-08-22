@@ -25,6 +25,8 @@ namespace Models
         public string Gender { get; set; }
         [Column("CatId"), ForeignKey(typeof(Category))]
         public int CategoryId { get; set; }
+        [Column("Category"), ManyToOne]
+        public Category Category { get; }
         [Column("Results"), OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Result> Results { get; set; }
     }

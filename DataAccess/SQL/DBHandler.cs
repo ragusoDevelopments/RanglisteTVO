@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Data.SQLite;
 using System.IO;
 using SQLite;
 using SQLiteNetExtensions.Extensions;
@@ -17,8 +16,7 @@ namespace DataAccess.SQL
         {
             if (!File.Exists(Environment.CurrentDirectory + "testDB.sqlite"))
             {
-                System.Data.SQLite.SQLiteConnection.CreateFile(Environment.CurrentDirectory + "testDB.sqlite");
-                SQLite.SQLiteConnection connection = new SQLite.SQLiteConnection(Environment.CurrentDirectory + "testDB.sqlite");
+                SQLiteConnection connection = new SQLiteConnection(Environment.CurrentDirectory + "testDB.sqlite");
                 connection.Execute("PRAGMA foreign_keys = ON;");
                 connection.CreateTable<Participant>();
                 connection.CreateTable<Result>();
