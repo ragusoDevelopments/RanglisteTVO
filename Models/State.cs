@@ -8,13 +8,13 @@ using SQLiteNetExtensions.Attributes;
 
 namespace Models
 {
-    public class Discipline
+    public class State
     {
-        [PrimaryKey, AutoIncrement, Column("Id")]
-        public int Id { get; }
+        [Column("Id"), PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         [Column("Name")]
         public string Name { get; set; }
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<DisciplineValue> Values { get; set; }
+        [Column("IsActive")]
+        public bool IsActive { get; set; } = true;
     }
 }

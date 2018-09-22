@@ -21,5 +21,8 @@ namespace Models
         [Column("Points")]
         public decimal Points { get; set; }
 
+        [Column("Participant"), ManyToOne]
+        public Participant Participant { get; set; }
+
     }
 }

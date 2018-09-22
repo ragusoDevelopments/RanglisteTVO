@@ -13,8 +13,8 @@ namespace Models
     {
         [Column("Id"), PrimaryKey, AutoIncrement]
         public int Id { get; }
-        [Column("CatId"), ForeignKey(typeof(Category)), ManyToOne]
-        public int CategoryId { get; set; }
+        [Column("DiscId"), ForeignKey(typeof(Category)), ManyToOne]
+        public int DisciplineId { get; set; }
         [Column("Gender")]
         public string Gendr { get; set; }
         [Column("Value")]

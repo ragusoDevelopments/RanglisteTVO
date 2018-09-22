@@ -4,17 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using SQLite;
+using SQLiteNetExtensions;
 using SQLiteNetExtensions.Attributes;
 
 namespace Models
 {
-    public class Discipline
+    public class Gender
     {
-        [PrimaryKey, AutoIncrement, Column("Id")]
-        public int Id { get; }
+        [Column("Id"), PrimaryKey, AutoIncrement]
+        public int Id { get; set; }
         [Column("Name")]
         public string Name { get; set; }
-        [OneToMany(CascadeOperations = CascadeOperation.All)]
-        public List<DisciplineValue> Values { get; set; }
     }
 }

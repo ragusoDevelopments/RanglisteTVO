@@ -9,6 +9,6 @@ namespace DataAccess
 {
     public interface IDBHandler
     {
-        SQLiteConnection getConnection();
+        SQLiteConnection GetConnection();
     }
 }
