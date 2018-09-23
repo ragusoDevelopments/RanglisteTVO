@@ -13,5 +13,7 @@ namespace DataAccess
         IDisciplineDao DisciplineDao { get; }
         IStateDao StateDao { get; }
         IGenderDao GenderDao { get; }
+        IDBHandler DBHandler { get; }
+        IWarningDao WarningDao { get; }
     }
 }

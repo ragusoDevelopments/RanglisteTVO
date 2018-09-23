@@ -3,13 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using SQLite;
+using Models;
 
 namespace DataAccess
 {
-    public interface IDBHandler
+    public interface IWarningDao
     {
-        string DBFilePath { get; set; }
-        SQLiteConnection GetConnection();
+        List<Warning> GetAllWarnings();
     }
 }

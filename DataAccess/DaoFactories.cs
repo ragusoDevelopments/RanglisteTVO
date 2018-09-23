@@ -12,9 +12,9 @@ namespace DataAccess
         {
             switch (dataProvider.ToLower())
             {
-                case "sqlite": return new SQL.DaoFactory();
+                case "sqlite": return new SQLite.DaoFactory();
 
-                default: return new SQL.DaoFactory();
+                default: return new SQLite.DaoFactory();
             }
         }
     }

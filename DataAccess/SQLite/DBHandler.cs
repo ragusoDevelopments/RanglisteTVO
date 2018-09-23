@@ -12,11 +12,27 @@ namespace DataAccess.SQLite
 {
     public class DBHandler : IDBHandler
     {
-        public string DBFilePath { get; set; } = null;
+        private string _DBFilePath = null;
+        public string DBFilePath
+        {
+            get
+            {
+                return _DBFilePath;
+            }
+            set
+            {
+                if(_DBFilePath != value)
+                {
+                    _DBFilePath = value;
+                }
+            }
+        }
 
         public SQLiteConnection GetConnection()
         {
-            if(DBFilePath == null)
+            //Test
+            DBFilePath = Environment.CurrentDirectory + "\\TestDB.sqlite";
+            if (DBFilePath == null)
             {
                 throw new Exception("The path to the Database is not set. Please do that by setting the DBHelper.DBFilePath property");
             }
@@ -32,6 +48,7 @@ namespace DataAccess.SQLite
                 connection.CreateTable<DisciplineValue>();
                 connection.CreateTable<State>();
                 connection.CreateTable<Gender>();
+                connection.CreateTable<Warning>();
                 return connection;
             }
             else

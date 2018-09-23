@@ -13,8 +13,6 @@ namespace Models
     {
         [PrimaryKey, AutoIncrement, Column("Id")]
         public int Id { get; }
-        [Column("StartNumber"), Unique, AutoIncrement]
-        public int StartNumber { get; set; }
         [Column("FirstName")]
         public string FirstName { get; set; }
         [Column("LastName")]
@@ -32,8 +30,10 @@ namespace Models
         [Column("Results"), OneToMany(CascadeOperations = CascadeOperation.All)]
         public List<Result> Results { get; set; }
         [Column("StateId"), ForeignKey(typeof(State))]
-        public int StateId { get;  set; }
+        public int StateId { get; set; }
         [Column("State"), ManyToOne]
         public State State { get; set; }
+        [Column("Warnings"), OneToMany(CascadeOperations = CascadeOperation.All)]
+        public List<Warning> Warnings { get; set; }
     }
 }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 
 namespace RanglisteTVO.ViewModels
 {
@@ -11,7 +12,7 @@ namespace RanglisteTVO.ViewModels
     {
         public event PropertyChangedEventHandler PropertyChanged;
 
-        public void NotifyPropertyChanged(string propertyName = "")
+        public void NotifyPropertyChanged([CallerMemberName] string propertyName = "")
         {
             if (PropertyChanged != null)
             {

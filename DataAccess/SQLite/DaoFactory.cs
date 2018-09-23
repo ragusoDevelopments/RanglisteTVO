@@ -13,5 +13,7 @@ namespace DataAccess.SQLite
         public IDisciplineDao DisciplineDao { get { return new DisciplineDao(); } }
         public IStateDao StateDao { get { return new StateDao(); } }
         public IGenderDao GenderDao { get { return new GenderDao(); } }
+        public IDBHandler DBHandler { get { return new DBHandler(); } }
+        public IWarningDao WarningDao { get { return new WarningDao(); } }
     }
 }

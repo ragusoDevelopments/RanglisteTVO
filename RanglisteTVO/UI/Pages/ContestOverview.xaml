@@ -16,19 +16,19 @@
             <RowDefinition Height="1*"/>
         </Grid.RowDefinitions>
         <StackPanel Grid.Column="0" VerticalAlignment="Center" Grid.Row="0" Height="auto">
-            <Label x:Name="lblParticipantsAmount" Content="8" HorizontalAlignment="Center" FontSize="100" />
+            <Label x:Name="lblParticipantsAmount" Content="{Binding Participants.Count}" HorizontalAlignment="Center" FontSize="100" />
             <Label Content="Teilnehmer" HorizontalAlignment="Center" FontSize="24"/>
         </StackPanel>
         <StackPanel Grid.Column="1" VerticalAlignment="Center" Grid.Row="0" Height="auto">
-            <Label x:Name="lblCategoriesAmount" Content="8" HorizontalAlignment="Center" FontSize="100" />
+            <Label x:Name="lblCategoriesAmount" Content="{Binding Categories.Count}" HorizontalAlignment="Center" FontSize="100" />
             <Label Content="Kategorien" HorizontalAlignment="Center" FontSize="24"/>
         </StackPanel>
         <StackPanel Grid.Column="0" Grid.Row="1" VerticalAlignment="Center" Height="auto">
-            <Label x:Name="lblDisciplineAmount" Content="8" HorizontalAlignment="Center" FontSize="100" />
+            <Label x:Name="lblDisciplineAmount" Content="{Binding Disciplines.Count}" HorizontalAlignment="Center" FontSize="100" />
             <Label Content="Disziplinen" HorizontalAlignment="Center" FontSize="24"/>
         </StackPanel>
         <StackPanel Grid.Column="1" Grid.Row="1" VerticalAlignment="Center" Height="auto">
-            <Label x:Name="lblWarningAmount" Content="8" HorizontalAlignment="Center" FontSize="100" />
+            <Label x:Name="lblWarningAmount" Content="{Binding Warnings.Count}" HorizontalAlignment="Center" FontSize="100" />
             <Label Content="Hinweise" HorizontalAlignment="Center" FontSize="24"/>
         </StackPanel>
 

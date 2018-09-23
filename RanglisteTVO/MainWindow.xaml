@@ -19,7 +19,7 @@
                 <RowDefinition Height="25"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" Width="" FontSize="14" Grid.Row="0">
+            <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" FontSize="14" Grid.Row="0">
                 <MenuItem x:Name="menuItemExport"  Header="Export" FontSize="14" Height="25">
                     <MenuItem Header="Teilnehmer (CSV)"/>
                     <MenuItem Header="Kategorien (CSV)"/>

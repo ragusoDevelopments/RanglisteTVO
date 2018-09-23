@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
+using Services;
 
 namespace RanglisteTVO
 {
@@ -13,5 +14,6 @@ namespace RanglisteTVO
     /// </summary>
     public partial class App : Application
     {
+        public static LocalDBService dbService = new LocalDBService(Environment.CurrentDirectory + "\\TestDB.sqlite");
     }
 }

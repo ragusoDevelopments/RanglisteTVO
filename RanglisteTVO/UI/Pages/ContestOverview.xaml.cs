@@ -23,6 +23,7 @@ namespace RanglisteTVO.UI.Pages
         public ContestOverview()
         {
             InitializeComponent();
+            DataContext = new ViewModels.ContestOverviewViewModel();
         }
     }
 }

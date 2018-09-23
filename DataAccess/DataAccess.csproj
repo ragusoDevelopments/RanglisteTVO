@@ -100,6 +100,7 @@
     <Compile Include="IGenderDao.cs" />
     <Compile Include="IParticipantDao.cs" />
     <Compile Include="IStateDao.cs" />
+    <Compile Include="IWarningDao.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLite\CategoryDao.cs" />
     <Compile Include="SQLite\DaoFactory.cs" />
@@ -108,6 +109,7 @@
     <Compile Include="SQLite\GenderDao.cs" />
     <Compile Include="SQLite\ParticipantDao.cs" />
     <Compile Include="SQLite\StateDao.cs" />
+    <Compile Include="SQLite\WarningDao.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

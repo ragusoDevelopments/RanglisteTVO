@@ -15,10 +15,9 @@ namespace RanglisteTVO.ViewModels
             #region Mock
             CurrentParticipant = new Participant
             {
-                StartNumber=100,
                 FirstName = "John",
                 LastName = "Doe",
-                Gender = "Männlich",
+                Gender = new Gender { Name = "Männlich"},
                 CategoryId = 0,
                 YearOfBirth = 2010,
                 Results = new List<Result>()

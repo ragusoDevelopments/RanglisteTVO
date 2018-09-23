@@ -13,7 +13,7 @@ namespace DataAccess.SQLite
     {
         DBHandler dbHandler = new DBHandler();
         SQLiteConnection conn;
-        
+
         public List<Participant> GetAllParticipants()
         {
             conn = dbHandler.GetConnection();
@@ -71,7 +71,7 @@ namespace DataAccess.SQLite
         {
             conn = dbHandler.GetConnection();
             conn.UpdateWithChildren(participant);
-            
+
             CleanUpResultsTable(conn);
             conn.Close();
         }
@@ -91,5 +91,12 @@ namespace DataAccess.SQLite
 
             connection.DeleteAll(results);
         }
+
+        private void CleanUpWarningsTable(SQLiteConnection connection)
+        {
+            List<Warning> warnings = connection.GetAllWithChildren<Warning>(w => w.ParticipantId.Equals(0) || w.ResultId.Equals(0));
+            connection.DeleteAll(warnings);
+        }
+
     }
 }
