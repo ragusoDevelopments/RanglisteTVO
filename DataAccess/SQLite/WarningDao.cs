@@ -12,12 +12,13 @@ namespace DataAccess.SQLite
 {
     public class WarningDao : IWarningDao
     {
-        DBHandler dBHandler = new DBHandler();
+        DBHandler dbHandler;
         SQLiteConnection conn;
 
-        public WarningDao()
+        public WarningDao(string dataPath)
         {
-            conn = dBHandler.GetConnection();
+            dbHandler = new DBHandler(dataPath);
+            conn = dbHandler.GetConnection();
         }
 
         public List<Warning> GetAllWarnings()

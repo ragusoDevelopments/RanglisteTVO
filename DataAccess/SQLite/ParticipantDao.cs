@@ -11,8 +11,14 @@ namespace DataAccess.SQLite
 {
     public class ParticipantDao : IParticipantDao
     {
-        DBHandler dbHandler = new DBHandler();
+        DBHandler dbHandler;
         SQLiteConnection conn;
+
+        public ParticipantDao(string dataPath)
+        {
+            dbHandler = new DBHandler(dataPath);
+            conn = dbHandler.GetConnection();
+        }
 
         public List<Participant> GetAllParticipants()
         {

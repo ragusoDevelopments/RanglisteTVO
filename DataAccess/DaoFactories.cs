@@ -8,13 +8,13 @@ namespace DataAccess
 {
     public class DaoFactories
     {
-        public static IDaoFactory GetFactory(string dataProvider)
+        public static IDaoFactory GetFactory(string dataProvider, string ConnectionString)
         {
             switch (dataProvider.ToLower())
             {
-                case "sqlite": return new SQLite.DaoFactory();
+                case "sqlite": return new SQLite.DaoFactory(ConnectionString);
 
-                default: return new SQLite.DaoFactory();
+                default: return new SQLite.DaoFactory(ConnectionString);
             }
         }
     }

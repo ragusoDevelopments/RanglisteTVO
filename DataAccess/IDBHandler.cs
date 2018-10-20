@@ -9,7 +9,6 @@ namespace DataAccess
 {
     public interface IDBHandler
     {
-        string DBFilePath { get; set; }
         SQLiteConnection GetConnection();
     }
 }

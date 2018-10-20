@@ -12,13 +12,15 @@ namespace DataAccess.SQLite
 {
     public class DisciplineDao : IDisciplineDao
     {
-        DBHandler dbHandler = new DBHandler();
-        SQLiteConnection conn;
+        DBHandler dbHandler;
 
-        public DisciplineDao()
+        public DisciplineDao(string dataPath)
         {
+            dbHandler = new DBHandler(dataPath);
             conn = dbHandler.GetConnection();
         }
+        SQLiteConnection conn;
+
 
         public List<Discipline> GetDisciplines()
         {

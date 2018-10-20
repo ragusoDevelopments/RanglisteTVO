@@ -11,11 +11,12 @@ namespace DataAccess.SQLite
 {
     public class StateDao : IStateDao
     {
-        DBHandler dbHandler = new DBHandler();
+        DBHandler dbHandler;
         SQLiteConnection conn;
 
-        public StateDao()
+        public StateDao(string dataPath)
         {
+            dbHandler = new DBHandler(dataPath);
             conn = dbHandler.GetConnection();
         }
 

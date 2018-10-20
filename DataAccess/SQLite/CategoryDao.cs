@@ -11,7 +11,12 @@ namespace DataAccess.SQLite
 {
     public class CategoryDao : ICategoryDao
     {
-        DBHandler dbhandler = new DBHandler();
+        DBHandler dbhandler;
+
+        public CategoryDao(string dataPath)
+        {
+            dbhandler = new DBHandler(dataPath);
+        }
         SQLiteConnection conn;
         
         public List<Category> GetAllCategories()

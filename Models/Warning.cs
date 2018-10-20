@@ -17,13 +17,13 @@ namespace Models
         [Column("ParticipantId"), ForeignKey(typeof(Participant))]
         public int ParticipantId { get; set; }
 
-        [Column("Participant")]
+        [Column("Participant"), ManyToOne]
         public Participant Participant { get; set; }
 
         [Column("ResultId"), ForeignKey(typeof(Result))]
         public int ResultId { get; set; }
 
-        [Column("Result")]
+        [Column("Result"), ManyToOne]
         public Result Result { get; set; }
     }
 }

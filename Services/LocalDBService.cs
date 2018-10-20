@@ -10,7 +10,7 @@ namespace Services
 {
     public class LocalDBService
     {
-        private static IDaoFactory factory = DaoFactories.GetFactory("sqlite");
+        private static IDaoFactory factory = DaoFactories.GetFactory("sqlite", Environment.CurrentDirectory + "\\TestDB.sqlite");
         private static IDBHandler dbhandler = factory.DBHandler;
         private static IParticipantDao participantDao;
         private static ICategoryDao categoryDao;
@@ -25,8 +25,6 @@ namespace Services
         /// <param name="DBConnectionString">Path to your LocalDB File. Give any path to create a new Database</param>
         public LocalDBService(string DBConnectionString)
         {
-            dbhandler.DBFilePath = DBConnectionString;
-
             participantDao = factory.ParticipantDao;
             categoryDao = factory.CategoryDao;
             disciplineDao = factory.DisciplineDao;

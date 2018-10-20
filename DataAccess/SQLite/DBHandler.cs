@@ -12,26 +12,17 @@ namespace DataAccess.SQLite
 {
     public class DBHandler : IDBHandler
     {
-        private string _DBFilePath = null;
-        public string DBFilePath
+        public DBHandler(string ConnectionString)
         {
-            get
-            {
-                return _DBFilePath;
-            }
-            set
-            {
-                if(_DBFilePath != value)
-                {
-                    _DBFilePath = value;
-                }
-            }
+            DBFilePath = ConnectionString;
         }
 
+        private string DBFilePath;
+        
         public SQLiteConnection GetConnection()
         {
             //Test
-            DBFilePath = Environment.CurrentDirectory + "\\TestDB.sqlite";
+            //DBFilePath = Environment.CurrentDirectory + "\\TestDB.sqlite";
             if (DBFilePath == null)
             {
                 throw new Exception("The path to the Database is not set. Please do that by setting the DBHelper.DBFilePath property");
