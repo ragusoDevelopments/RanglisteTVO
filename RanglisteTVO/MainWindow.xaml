@@ -7,32 +7,32 @@
         mc:Ignorable="d"
         Title="Rangliste TV Oberwinterthur" Height="600" Width="1000">
     <Grid>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="3*"/>
-        </Grid.ColumnDefinitions>
-        <StackPanel>
-            <Button Content="Übersicht"/>
-        </StackPanel>
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="25"/>
-                <RowDefinition Height="*"/>
-            </Grid.RowDefinitions>
-            <Menu x:Name="mainMenu" HorizontalAlignment="Left" Height="auto" VerticalAlignment="Top" FontSize="14" Grid.Row="0">
-                <MenuItem x:Name="menuItemExport"  Header="Export" FontSize="14" Height="25">
-                    <MenuItem Header="Teilnehmer (CSV)"/>
-                    <MenuItem Header="Kategorien (CSV)"/>
-                    <MenuItem Header="Disziplinen (CSV)"/>
-                </MenuItem>
-                <MenuItem x:Name="menuItemImport"  Header="Import" FontSize="14" Height="25">
-                    <MenuItem Header="Teilnehmer (CSV)"/>
-                    <MenuItem Header="Kategorien (CSV)"/>
-                    <MenuItem Header="Disziplinen (CSV)"/>
-                </MenuItem>
-            </Menu>
-            <Frame x:Name="mainFrame" Grid.Row="1"></Frame>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <Menu Name="mainMenu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Grid.Row="0">
+            <MenuItem Name="menuItemExport"  Header="Export">
+                <MenuItem Header="Teilnehmer (CSV)"/>
+                <MenuItem Header="Kategorien (CSV)"/>
+                <MenuItem Header="Disziplinen (CSV)"/>
+            </MenuItem>
+            <MenuItem Name="menuItemImport"  Header="Import">
+                <MenuItem Header="Teilnehmer (CSV)"/>
+                <MenuItem Header="Kategorien (CSV)"/>
+                <MenuItem Header="Disziplinen (CSV)"/>
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="4*" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <Button Content="Übersicht"/>
+            </StackPanel>
+            <Frame x:Name="mainFrame" Grid.Column="1"></Frame>
         </Grid>
-       
+        
     </Grid>
 </Window>
