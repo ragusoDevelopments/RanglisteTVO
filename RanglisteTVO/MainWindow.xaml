@@ -11,7 +11,7 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Menu Name="mainMenu" HorizontalAlignment="Left" Height="20" VerticalAlignment="Top" Grid.Row="0">
+        <Menu Name="mainMenu" HorizontalAlignment="Stretch" Height="20" VerticalAlignment="Top" Grid.Row="0">
             <MenuItem Name="menuItemExport"  Header="Export">
                 <MenuItem Header="Teilnehmer (CSV)"/>
                 <MenuItem Header="Kategorien (CSV)"/>
@@ -30,6 +30,14 @@
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
                 <Button Content="Übersicht"/>
+                <StackPanel Margin="5,0,0,0">
+                    <TextBlock Text="Hinzufügen" HorizontalAlignment="Left" FontSize="15"/>
+                    <StackPanel>
+                        <Button Content="Teilnehmer" HorizontalContentAlignment="Left" Padding="5,0,0,0"/>
+                        <Button Content="Kategorie" HorizontalContentAlignment="Left" Padding="5,0,0,0"/>
+                        <Button Content="Disziplin" HorizontalContentAlignment="Left" Padding="5,0,0,0"/>
+                    </StackPanel>
+                </StackPanel>
             </StackPanel>
             <Frame x:Name="mainFrame" Grid.Column="1"></Frame>
         </Grid>

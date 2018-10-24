@@ -8,7 +8,7 @@ using Models;
 
 namespace RanglisteTVO.ViewModels
 {
-    class EditParticipantViewModel : ViewModelBase
+    public class EditParticipantViewModel : ViewModelBase
     {
         public EditParticipantViewModel()
         {

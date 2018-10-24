@@ -86,6 +86,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Helper\DelegateCommand.cs" />
+    <Compile Include="NavigationController.cs" />
     <Compile Include="UI\Pages\ContestOverview.xaml.cs">
       <DependentUpon>ContestOverview.xaml</DependentUpon>
     </Compile>
@@ -94,6 +96,7 @@
     </Compile>
     <Compile Include="ViewModels\ContestOverviewViewModel.cs" />
     <Compile Include="ViewModels\EditParticipantViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

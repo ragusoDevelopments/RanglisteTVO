@@ -8,7 +8,7 @@ using System.Runtime.CompilerServices;
 
 namespace RanglisteTVO.ViewModels
 {
-    class ViewModelBase : INotifyPropertyChanged
+    public class ViewModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
 

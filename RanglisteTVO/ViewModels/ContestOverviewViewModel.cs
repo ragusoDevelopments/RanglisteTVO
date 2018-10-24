@@ -7,7 +7,7 @@ using Models;
 
 namespace RanglisteTVO.ViewModels
 {
-    class ContestOverviewViewModel : ViewModelBase
+    public class ContestOverviewViewModel : ViewModelBase
     {
         private List<Participant> _Participants = App.dbService.GetParticipants();
         public List<Participant> Participants
