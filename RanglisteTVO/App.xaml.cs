@@ -15,5 +15,6 @@ namespace RanglisteTVO
     public partial class App : Application
     {
         public static LocalDBService dbService = new LocalDBService(Environment.CurrentDirectory + "\\TestDB.sqlite");
+        public static NavigationController navController = new NavigationController();
     }
 }

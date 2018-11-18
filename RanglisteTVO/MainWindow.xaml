@@ -38,6 +38,7 @@
                         <Button Content="Disziplin" HorizontalContentAlignment="Left" Padding="5,0,0,0"/>
                     </StackPanel>
                 </StackPanel>
+                <Frame Name="navigationFrame" Grid.Column="0"></Frame>
             </StackPanel>
             <Frame x:Name="mainFrame" Grid.Column="1"></Frame>
         </Grid>

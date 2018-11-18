@@ -24,6 +24,8 @@ namespace RanglisteTVO
         {
             InitializeComponent();
             mainFrame.Content = new UI.Pages.ContestOverview();
+            App.navController.MainFrame = mainFrame;
+            App.navController.NavigationFrame = navigationFrame;
         }
     }
 }
