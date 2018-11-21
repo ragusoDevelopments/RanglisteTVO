@@ -87,6 +87,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Helper\DelegateCommand.cs" />
+    <Compile Include="Helper\DelegateCommandBase.cs" />
     <Compile Include="NavigationController.cs" />
     <Compile Include="UI\Pages\ContestOverview.xaml.cs">
       <DependentUpon>ContestOverview.xaml</DependentUpon>

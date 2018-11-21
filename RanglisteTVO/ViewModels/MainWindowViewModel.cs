@@ -16,10 +16,10 @@ namespace RanglisteTVO.ViewModels
 
         public MainWindowViewModel()
         {
-
+            ShowOverviewCommand = new DelegateCommand(LoadView);
         }
 
-        private void LoadView(int i)
+        private void LoadView(object o)
         {
 
         }

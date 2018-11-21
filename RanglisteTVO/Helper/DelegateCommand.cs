@@ -4,50 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using System.Windows;
 
 namespace RanglisteTVO.Helper
 {
-    public class DelegateCommand : ICommand
+    public class DelegateCommand : DelegateCommandBase
     {
-        private readonly Predicate<object> _canExecute;
-        private readonly Action<object> _execute;
-
-        public event EventHandler CanExecuteChanged;
-
         public DelegateCommand(Action<object> execute)
-                       : this(execute, null)
+                       : this(execute, (r) => true)
         {
         }
 
-        public DelegateCommand(Action<object> execute,
-                       Predicate<object> canExecute)
+        public DelegateCommand(Action<object> execute, Func<object, bool> canExecute): base(execute, canExecute)
         {
-            _execute = execute;
-            _canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            if (_canExecute == null)
+            if(execute == null || canExecute == null)
             {
-                return true;
-            }
-
-            return _canExecute(parameter);
-        }
-
-        public void Execute(object parameter)
-        {
-            _execute(parameter);
-        }
-
-        public void RaiseCanExecuteChanged()
-        {
-            if (CanExecuteChanged != null)
-            {
-                CanExecuteChanged(this, EventArgs.Empty);
+                throw new ArgumentException("Function cannot be null");
             }
         }
     }
-
 }
