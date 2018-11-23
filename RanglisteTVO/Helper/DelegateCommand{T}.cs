@@ -3,24 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
-using System.Windows;
 
 namespace RanglisteTVO.Helper
 {
-    public class DelegateCommand : DelegateCommandBase
+    public class DelegateCommand<T>: DelegateCommandBase
     {
-        Action execute;
-        Func<bool> canExecute;
+        Action<object> execute;
+        Func<object, bool> canExecute;
 
-        public DelegateCommand(Action execute)
-                       : this(execute, () => true)
+        public DelegateCommand(Action<object> execute)
+                       : this(execute, (r) => true)
         {
         }
 
-        public DelegateCommand(Action execute, Func<bool> canExecute)
+        public DelegateCommand(Action<object> execute, Func<object, bool> canExecute)
         {
-            if(execute == null || canExecute == null)
+            if (execute == null || canExecute == null)
             {
                 throw new ArgumentException("Function cannot be null");
             }
@@ -31,12 +29,12 @@ namespace RanglisteTVO.Helper
 
         protected override bool CanExecute(object parameter)
         {
-            return canExecute();
+            return canExecute(parameter);
         }
 
         protected override void Execute(object parameter)
         {
-            execute();
+            execute(parameter);
         }
     }
 }

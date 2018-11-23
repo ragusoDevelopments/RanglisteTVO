@@ -7,28 +7,9 @@ using System.Windows.Input;
 
 namespace RanglisteTVO.Helper
 {
-    public class DelegateCommandBase : ICommand
+    public abstract class DelegateCommandBase : ICommand
     {
-        private readonly Action<object> execute;
-        private Func<object, bool> canExecute;
-
         public event EventHandler CanExecuteChanged;
-
-        public DelegateCommandBase(Action<object> execute, Func<object, bool> canExecute)
-        {
-            this.execute = execute;
-            this.canExecute = canExecute;
-        }
-
-        public bool CanExecute(object parameter)
-        {
-            return canExecute(parameter);
-        }
-
-        public void Execute(object parameter)
-        {
-            execute(parameter);
-        }
 
         public void RaiseCanExecuteChanged()
         {
@@ -37,5 +18,19 @@ namespace RanglisteTVO.Helper
                 CanExecuteChanged(this, EventArgs.Empty);
             }
         }
+
+        void ICommand.Execute(object parameter)
+        {
+            Execute(parameter);
+        }
+
+        bool ICommand.CanExecute(object parameter)
+        {
+            return CanExecute(parameter);
+        }
+
+        protected abstract void Execute(object parameter);
+
+        protected abstract bool CanExecute(object parameter);
     }
 }
