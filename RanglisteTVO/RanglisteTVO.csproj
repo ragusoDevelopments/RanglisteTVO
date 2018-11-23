@@ -88,7 +88,8 @@
     </ApplicationDefinition>
     <Compile Include="Helper\DelegateCommand.cs" />
     <Compile Include="Helper\DelegateCommandBase.cs" />
-    <Compile Include="NavigationController.cs" />
+    <Compile Include="Helper\DelegateCommand{T}.cs" />
+    <Compile Include="NavigationEngine.cs" />
     <Compile Include="UI\Pages\ContestOverview.xaml.cs">
       <DependentUpon>ContestOverview.xaml</DependentUpon>
     </Compile>

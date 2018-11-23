@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using RanglisteTVO.ViewModels;
 
 namespace RanglisteTVO
 {
@@ -23,9 +24,13 @@ namespace RanglisteTVO
         public MainWindow()
         {
             InitializeComponent();
-            mainFrame.Content = new UI.Pages.ContestOverview();
+            this.DataContext = new MainWindowViewModel();
+
+            //mainFrame.Content = new UI.Pages.ContestOverview();
             App.navController.MainFrame = mainFrame;
             App.navController.NavigationFrame = navigationFrame;
+
+            App.navController.RegisterView(new UI.Pages.ContestOverview(), "ContestOverview", "Übersicht");
         }
     }
 }

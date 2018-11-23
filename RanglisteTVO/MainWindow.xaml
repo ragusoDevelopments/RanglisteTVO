@@ -29,7 +29,7 @@
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <Button Content="Übersicht"/>
+                <Button Content="Übersicht" Command="{Binding ShowOverviewCommand}"/>
                 <StackPanel Margin="5,0,0,0">
                     <TextBlock Text="Hinzufügen" HorizontalAlignment="Left" FontSize="15"/>
                     <StackPanel>
@@ -38,7 +38,7 @@
                         <Button Content="Disziplin" HorizontalContentAlignment="Left" Padding="5,0,0,0"/>
                     </StackPanel>
                 </StackPanel>
-                <Frame Name="navigationFrame" Grid.Column="0"></Frame>
+                <Grid Name="navigationFrame" Grid.Column="0"></Grid>
             </StackPanel>
             <Frame x:Name="mainFrame" Grid.Column="1"></Frame>
         </Grid>
