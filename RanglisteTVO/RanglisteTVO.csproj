@@ -89,7 +89,6 @@
     <Compile Include="Helper\DelegateCommand.cs" />
     <Compile Include="Helper\DelegateCommandBase.cs" />
     <Compile Include="Helper\DelegateCommand{T}.cs" />
-    <Compile Include="NavigationEngine.cs" />
     <Compile Include="UI\Pages\ContestOverview.xaml.cs">
       <DependentUpon>ContestOverview.xaml</DependentUpon>
     </Compile>
@@ -153,6 +152,10 @@
     <ProjectReference Include="..\Models\Models.csproj">
       <Project>{bd722915-cbd6-4a61-b2b8-0ec60753b003}</Project>
       <Name>Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NavigationEngine\NavigationEngine.csproj">
+      <Project>{270b742e-db6c-4b9f-8236-8bcb797f121d}</Project>
+      <Name>NavigationEngine</Name>
     </ProjectReference>
     <ProjectReference Include="..\Services\Services.csproj">
       <Project>{31f86dab-dacb-4e85-b454-6a0950d7854c}</Project>

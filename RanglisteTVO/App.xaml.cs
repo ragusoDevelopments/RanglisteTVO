@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using Services;
+using NavigationEngine;
 
 namespace RanglisteTVO
 {
@@ -15,6 +16,6 @@ namespace RanglisteTVO
     public partial class App : Application
     {
         public static LocalDBService dbService = new LocalDBService(Environment.CurrentDirectory + "\\TestDB.sqlite");
-        public static NavigationEngine navController = new NavigationEngine();
+        public static NavigationController navEngine = new NavigationController();
     }
 }

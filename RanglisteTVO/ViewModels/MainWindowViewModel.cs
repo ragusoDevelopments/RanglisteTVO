@@ -22,7 +22,7 @@ namespace RanglisteTVO.ViewModels
 
         private void LoadView()
         {
-            App.navController.RequestNavigation("ContestOverview");
+            App.navEngine.RequestNavigation("ContestOverview");
         }
     }
 }
