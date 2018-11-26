@@ -65,7 +65,7 @@ namespace RanglisteTVO
         /// </summary>
         public NavigationEngine()
         {
-
+            NavigationCommand = new DelegateCommand<object>(Navigate);
         }
 
         /// <summary>
@@ -73,12 +73,10 @@ namespace RanglisteTVO
         /// </summary>
         /// <param name="navigationFrame">Frame in which the Navigation is to be shown</param>
         /// <param name="MainFrame">Frame in which the actual conten is to be shown</param>
-        public NavigationEngine(Grid navigationFrame, Frame mainFrame)
+        public NavigationEngine(Grid navigationFrame, Frame mainFrame):this()
         {
             NavigationFrame = navigationFrame;
             MainFrame = mainFrame;
-
-            NavigationCommand = new DelegateCommand<object>(Navigate);
         }
 
         private void Navigate(object key)
