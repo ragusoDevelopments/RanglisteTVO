@@ -27,10 +27,10 @@ namespace RanglisteTVO
             this.DataContext = new MainWindowViewModel();
 
             //mainFrame.Content = new UI.Pages.ContestOverview();
-            App.navController.MainFrame = mainFrame;
-            App.navController.NavigationFrame = navigationFrame;
+            App.navEngine.MainFrame = mainFrame;
+            App.navEngine.NavigationGrid = navigationFrame;
 
-            App.navController.RegisterView(new UI.Pages.ContestOverview(), "ContestOverview", "Übersicht");
+            App.navEngine.RegisterView(new UI.Pages.ContestOverview(), "ContestOverview", null ,"Übersicht");
         }
     }
 }
