@@ -203,12 +203,10 @@ namespace NavigationEngine
                 containerKey = RootContainerName;
             }
 
-            View view = new View { key = key, view = content, navTitle = title, mainWindowTitle = mainWindowTitle };
+            View view = new View { key = key, container = containerKey, view = content, navTitle = title, mainWindowTitle = mainWindowTitle };
 
             view.navButton = AddNavButton(view);
             RegisteredViews.Add(view);
-
-            RenderNavigation();
         }
 
         private static string RootContainerName = "RootContainer";
@@ -233,17 +231,17 @@ namespace NavigationEngine
             s.HorizontalAlignment = HorizontalAlignment.Left;
             s.Name = RootContainerName;
 
-            s.Children.Add(RegisteredContainers.Where(c => c.key == RootContainerName).FirstOrDefault().GetXAMLStructure(RegisteredContainers));
+            s.Children.Add(RegisteredContainers.Where(c => c.parentContainerKey == RootContainerName).FirstOrDefault().GetXAMLStructure(RegisteredContainers));
 
             NavigationGrid.Children.Add(s);
 
-            //foreach (View v in RegisteredViews)
-            //{
-            //    if (v.navButton != null)
-            //    {
-            //        NavigationGrid.Children.Add(v.navButton);
-            //    }
-            //}
+            StackPanel container = null;
+            
+            RegisteredViews.ForEach((v) => 
+            {
+                container = (StackPanel) NavigationGrid.FindName(v.container);
+                container.Children.Add(v.navButton);
+            });
         }
     }
 }
