@@ -42,13 +42,6 @@ namespace NavigationEngine
             public Button navButton;
         }
 
-        public struct Container
-        {
-            public string key;
-            public string parentContainerKey;
-            public string title;
-        }
-
         private List<Container> _RegisteredContainers = new List<Container> { new Container { key = RootContainerName, parentContainerKey = null } };
         public List<Container> RegisteredContainers
         {
@@ -106,7 +99,7 @@ namespace NavigationEngine
         /// </summary>
         /// <param name="key">Unique identifyer for the container</param>
         /// <param name="parentKey">The parent Container's key</param>
-        public void RegisterContainer(string key, string parentKey, string title)
+        public void RegisterContainer(string key, string title, string parentKey)
         {
             AddContainer(key, parentKey, title);
         }
@@ -117,7 +110,7 @@ namespace NavigationEngine
         /// <param name="key">Unique identifyer for the container</param>
         public void RegisterContainer(string key, string title)
         {
-            RegisterContainer(key, RootContainerName);
+            RegisterContainer(key, title, RootContainerName);
         }
 
         /// <summary>
@@ -190,7 +183,7 @@ namespace NavigationEngine
             {
                 throw new Exception(String.Format("There is no container with the key '{0}' found. Please register that first.", key));
             }
-            else if(title == null)
+            else if (title == null)
             {
                 title = "";
             }
@@ -204,8 +197,8 @@ namespace NavigationEngine
             {
                 throw new Exception(String.Format("The Key must be unique. '{0}' is already used. Please use another Key", key));
             }
-            
-            if(string.IsNullOrWhiteSpace(containerKey))
+
+            if (string.IsNullOrWhiteSpace(containerKey))
             {
                 containerKey = RootContainerName;
             }
@@ -232,17 +225,25 @@ namespace NavigationEngine
             return b;
         }
 
-        private void RenderNavigation()
+        public void RenderNavigation()
         {
             NavigationGrid.Children.Clear();
 
-            foreach (View v in RegisteredViews)
-            {
-                if (v.navButton != null)
-                {
-                    NavigationGrid.Children.Add(v.navButton);
-                }
-            }
+            StackPanel s = new StackPanel();
+            s.HorizontalAlignment = HorizontalAlignment.Left;
+            s.Name = RootContainerName;
+
+            s.Children.Add(RegisteredContainers.Where(c => c.key == RootContainerName).FirstOrDefault().GetXAMLStructure(RegisteredContainers));
+
+            NavigationGrid.Children.Add(s);
+
+            //foreach (View v in RegisteredViews)
+            //{
+            //    if (v.navButton != null)
+            //    {
+            //        NavigationGrid.Children.Add(v.navButton);
+            //    }
+            //}
         }
     }
 }

@@ -47,6 +47,7 @@
     <Compile Include="Commands\DelegateCommand.cs" />
     <Compile Include="Commands\DelegateCommandBase.cs" />
     <Compile Include="Commands\DelegateCommand{T}.cs" />
+    <Compile Include="Container.cs" />
     <Compile Include="NavigationController.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
