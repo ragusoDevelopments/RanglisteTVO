@@ -15,8 +15,9 @@ namespace NavigationEngine
         public string parentContainerKey;
         public string title;
 
-        public UIElement GetXAMLStructure(List<Container> RegisteredContainers)
+        public UIElement GetXAMLStructure(List<Container> RegisteredContainers, List<View> RegisteredViews)
         {
+            //create and add current container
             StackPanel s = new StackPanel();
             s.Name = this.key;
             s.Margin = new System.Windows.Thickness(5, 0, 0, 0);
@@ -28,11 +29,18 @@ namespace NavigationEngine
 
             s.Children.Add(t);
 
-            UIElement e = null;
+            //create and add navcontrols for current container
+            RegisteredViews.Where(vw=>vw.container == this.key).ToList().ForEach((v) =>
+            {
+                s.Children.Add(v.navButton);
+            });
 
+            //Repeat for each child container
+            UIElement e = null;
+            
             RegisteredContainers.Where(c => c.parentContainerKey == this.key).ToList().ForEach((container) =>
             {
-                e = container.GetXAMLStructure(RegisteredContainers);
+                e = container.GetXAMLStructure(RegisteredContainers, RegisteredViews);
 
                 if (e != null)
                 {

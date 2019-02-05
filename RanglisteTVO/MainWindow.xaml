@@ -29,8 +29,8 @@
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <Button Content="Übersicht" Command="{Binding ShowOverviewCommand}"/>
-                <StackPanel Margin="5,0,0,0">
+                <Button Content="Übersicht" Visibility="Hidden" Command="{Binding ShowOverviewCommand}"/>
+                <StackPanel Margin="5,0,0,0" Visibility="Hidden">
                     <TextBlock Text="Hinzufügen" HorizontalAlignment="Left" FontSize="15"/>
                     <StackPanel>
                         <Button Content="Teilnehmer" HorizontalContentAlignment="Left" Padding="5,0,0,0"/>
@@ -40,7 +40,7 @@
                 </StackPanel>
                 <Grid Name="navigationFrame" Grid.Column="0"></Grid>
             </StackPanel>
-            <Frame x:Name="mainFrame" Grid.Column="1"></Frame>
+            <Frame x:Name="mainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
         </Grid>
         
     </Grid>
