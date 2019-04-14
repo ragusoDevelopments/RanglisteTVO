@@ -31,8 +31,9 @@ namespace RanglisteTVO
             App.navEngine.NavigationGrid = navigationFrame;
 
             App.navEngine.RegisterView(new UI.Pages.ContestOverview(), "ContestOverview", null ,"Übersicht");
-            App.navEngine.RegisterContainer("Objects", "Objekte");
-            App.navEngine.RegisterView(new UI.Pages.EditParticipant(), "EditParticipant", "Objects", "Teilnehmer");
+
+            App.navEngine.RegisterContainer("objects", "Objekte");
+            App.navEngine.RegisterView(new UI.Pages.EditObjectsShell(), "Participant", "objects", "Teilnehmer");
             App.navEngine.RenderNavigation();
         }
     }

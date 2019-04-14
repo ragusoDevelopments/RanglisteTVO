@@ -9,7 +9,7 @@ using System.Runtime.CompilerServices;
 namespace RanglisteTVO.ViewModels
 {
     public class ViewModelBase : INotifyPropertyChanged
-    {
+    { 
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void NotifyPropertyChanged([CallerMemberName] string propertyName = "")

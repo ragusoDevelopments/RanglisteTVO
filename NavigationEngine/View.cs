@@ -10,11 +10,11 @@ namespace NavigationEngine
 {
     public class View
     {
-            public string key;
-            public Page view;
-            public string navTitle;
-            public string mainWindowTitle;
-            public string container;
-            public Button navButton;
+        public string key;
+        public Page view;
+        public string navTitle;
+        public string mainWindowTitle;
+        public string container;
+        public Button navButton;
     }
 }

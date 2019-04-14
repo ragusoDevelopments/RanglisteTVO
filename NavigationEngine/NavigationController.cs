@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Data;
 using System.Windows.Controls;
 using NavigationEngine.Commands;
+using NavigationEngine.Interfaces;
 
 namespace NavigationEngine
 {
@@ -32,7 +33,7 @@ namespace NavigationEngine
             set;
         }
 
-        private List<Container> _RegisteredContainers = new List<Container> { new Container { key = RootContainerName, parentContainerKey = null } };
+        private List<Container> _RegisteredContainers = new List<Container>();
         public List<Container> RegisteredContainers
         {
             get { return _RegisteredContainers; }
@@ -70,6 +71,7 @@ namespace NavigationEngine
         public NavigationController()
         {
             NavigationCommand = new DelegateCommand<object>((key) => RequestNavigation((string)key));
+            RegisterContainer(RootContainerName, String.Empty, null);
         }
 
         /// <summary>
@@ -150,9 +152,10 @@ namespace NavigationEngine
         }
 
         /// <summary>
-        /// Tries to Navigate to the requested view, remember that yourt view hast to be registered
+        /// Tries to Navigate to the requested view. Remember that your view hast to be registered
         /// </summary>
         /// <param name="key">The view's Key</param>
+        /// <param name="sourceViewModel">Source ViewModel. Pass null if none available</param>
         public void RequestNavigation(string key)
         {
             if (RegisteredViews.Where(v => v.key == key).Count() != 1)
@@ -160,7 +163,38 @@ namespace NavigationEngine
                 throw new Exception(string.Format("No View with Key '{0}' found. Your view has to be registered. Use NavigationEngine.RegisterView(...) to do so.", key));
             }
 
-            MainFrame.Content = RegisteredViews.Where(v => v.key == key).FirstOrDefault().view;
+            Page target = RegisteredViews.Where(v => v.key == key).FirstOrDefault().view;
+
+            INavigatable targetViewModel = target.DataContext as INavigatable;
+            INavigatable sourceViewModel = null;
+
+            if (MainFrame.Content != null)
+            {
+                sourceViewModel = ((Page)MainFrame.Content).DataContext as INavigatable;
+            }
+
+            if (sourceViewModel != null)
+            {
+                if (!sourceViewModel.OnLeaving())
+                {
+                    return;
+                }
+            }
+
+            MainFrame.Content = target;
+
+
+            if (targetViewModel != null)
+            {
+                if (sourceViewModel != null)
+                {
+                    targetViewModel.OnEnter(key, sourceViewModel.leavingParameter);
+                }
+                else
+                {
+                    targetViewModel.OnEnter(key, null);
+                }
+            }
         }
 
         private void AddContainer(string key, string parentKey, string title)
@@ -193,7 +227,7 @@ namespace NavigationEngine
                 containerKey = RootContainerName;
             }
 
-            View view = new View { key = key, container = containerKey, view = content, navTitle = title, mainWindowTitle = mainWindowTitle };
+            View view = new View { key = key, container = containerKey, view = content, navTitle = title, mainWindowTitle = mainWindowTitle};
 
             view.navButton = AddNavButton(view);
             RegisteredViews.Add(view);
@@ -215,25 +249,14 @@ namespace NavigationEngine
 
         public void RenderNavigation()
         {
-            NavigationGrid.Children.Clear();
+            UIElement rootContainer = (UIElement) NavigationGrid.FindName(RootContainerName);
 
-            StackPanel s = new StackPanel();
-            s.HorizontalAlignment = HorizontalAlignment.Left;
-            s.Name = RootContainerName;
+            if(rootContainer != null)
+            {
+                NavigationGrid.Children.Remove(rootContainer);
+            }
 
-            RegisteredViews.Where((vw) => vw.container == RootContainerName).ToList().ForEach((v) => { s.Children.Add(v.navButton); });
-
-            s.Children.Add(RegisteredContainers.Where(c => c.parentContainerKey == RootContainerName).FirstOrDefault().GetXAMLStructure(RegisteredContainers, RegisteredViews));
-
-            NavigationGrid.Children.Add(s);
-
-            //StackPanel container = null;
-
-            //RegisteredViews.ForEach((v) => 
-            //{
-            //    container = (StackPanel) NavigationGrid.FindName(v.container);
-            //    container.Children.Add(v.navButton);
-            //});
+            NavigationGrid.Children.Add(RegisteredContainers.Where(c => c.key == RootContainerName).FirstOrDefault().GetXAMLStructure(RegisteredContainers, RegisteredViews));
         }
     }
 }

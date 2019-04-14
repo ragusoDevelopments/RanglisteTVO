@@ -6,7 +6,11 @@
       xmlns:local="clr-namespace:RanglisteTVO.UI.Pages"
       mc:Ignorable="d"
       Title="ContestOverview" Height="auto" Width="auto" d:DesignWidth="739.243" d:DesignHeight="473.827" Background="white" ShowsNavigationUI="false">
-    <Grid>
+    <Page.Resources>
+        <ResourceDictionary Source="/Resources/Styles/page.xaml" />
+    </Page.Resources>
+
+    <Grid Style="{StaticResource PageMainGrid}">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="1*"/>

@@ -1,0 +1,48 @@
+﻿<Page x:Class="RanglisteTVO.UI.Pages.EditObjectsShell"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:RanglisteTVO.UI.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="300" d:DesignWidth="486.877"
+      Width="auto"
+      Height="auto"
+      Title="EditObjectsShell">
+    <Page.Resources>
+            <ResourceDictionary Source="/Resources/Styles/page.xaml" />
+    </Page.Resources>
+
+    <Grid Style="{StaticResource PageMainGrid}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <DockPanel Grid.Column="0" HorizontalAlignment="Left">
+                <Button Style="{StaticResource UtilityButton}">
+                    <Image Source="/Resources/Icons/plus.png" />
+                </Button>
+                <Button  Style="{StaticResource UtilityButton}">
+                    <Image Source="/Resources/Icons/dustbin.png" />
+                </Button>
+                <Button  Style="{StaticResource UtilityButton}">
+                    <Image Source="/Resources/Icons/search.png" />
+                </Button>
+            </DockPanel>
+            <ListView Grid.Row="1" ItemsSource="{Binding Objects}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel>
+                            <Label Content="{Binding display}"/>
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

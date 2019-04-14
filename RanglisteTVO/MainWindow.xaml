@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RanglisteTVO"
         mc:Ignorable="d"
-        Title="Rangliste TV Oberwinterthur" Height="600" Width="1000">
+        Title="Rangliste TV Oberwinterthur" Height="900" Width="1500">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="20"/>
@@ -29,8 +29,8 @@
                 <ColumnDefinition Width="4*" />
             </Grid.ColumnDefinitions>
             <StackPanel Grid.Column="0">
-                <Button Content="Übersicht" Visibility="Hidden" Command="{Binding ShowOverviewCommand}"/>
-                <StackPanel Margin="5,0,0,0" Visibility="Hidden">
+                <Button Visibility="Hidden" Height="0" Content="Übersicht" Command="{Binding ShowOverviewCommand}"/>
+                <StackPanel Margin="5,0,0,0" Visibility="Hidden" Height="0">
                     <TextBlock Text="Hinzufügen" HorizontalAlignment="Left" FontSize="15"/>
                     <StackPanel>
                         <Button Content="Teilnehmer" HorizontalContentAlignment="Left" Padding="5,0,0,0"/>
@@ -38,7 +38,11 @@
                         <Button Content="Disziplin" HorizontalContentAlignment="Left" Padding="5,0,0,0"/>
                     </StackPanel>
                 </StackPanel>
-                <Grid Name="navigationFrame" Grid.Column="0"></Grid>
+                <StackPanel Margin="5,0,0,0">
+                    <Label FontSize="25" Padding="5,0">Navigation</Label>
+                    <Grid Name="navigationFrame" Grid.Column="0">
+                    </Grid>
+                </StackPanel>
             </StackPanel>
             <Frame x:Name="mainFrame" Grid.Column="1" NavigationUIVisibility="Hidden"></Frame>
         </Grid>

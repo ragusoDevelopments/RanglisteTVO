@@ -92,10 +92,14 @@
     <Compile Include="UI\Pages\ContestOverview.xaml.cs">
       <DependentUpon>ContestOverview.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\Pages\EditObjectsShell.xaml.cs">
+      <DependentUpon>EditObjectsShell.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\Pages\EditParticipant.xaml.cs">
       <DependentUpon>EditParticipant.xaml</DependentUpon>
     </Compile>
     <Compile Include="ViewModels\ContestOverviewViewModel.cs" />
+    <Compile Include="ViewModels\EditObjectsShellViewModel.cs" />
     <Compile Include="ViewModels\EditParticipantViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
@@ -111,7 +115,19 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Resources\Styles\buttons.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Resources\Styles\page.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\Pages\ContestOverview.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\Pages\EditObjectsShell.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -161,6 +177,15 @@
       <Project>{31f86dab-dacb-4e85-b454-6a0950d7854c}</Project>
       <Name>Services</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\dustbin.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\search.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.11\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets" Condition="Exists('..\packages\SQLitePCLRaw.lib.e_sqlite3.linux.1.1.11\build\net35\SQLitePCLRaw.lib.e_sqlite3.linux.targets')" />

@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel;
 using Models;
+using NavigationEngine.Interfaces;
 
 namespace RanglisteTVO.ViewModels
 {
-    public class EditParticipantViewModel : ViewModelBase
+    public class EditParticipantViewModel : ViewModelBase, INavigatable 
     {
         public EditParticipantViewModel()
         {
@@ -42,6 +43,30 @@ namespace RanglisteTVO.ViewModels
                     NotifyPropertyChanged("CurrentParticipant");
                 }
             }
+        }
+
+        private object _leavingParameter = null;
+        public object leavingParameter
+        {
+            get
+            {
+                return _leavingParameter;
+            }
+
+            set
+            {
+                _leavingParameter = value;
+            }
+        }
+
+        public bool OnLeaving()
+        {
+            return true;
+        }
+
+        public void OnEnter(object staticParameter, object dyncamicParameter)
+        {
+            throw new NotImplementedException();
         }
     }
 }
